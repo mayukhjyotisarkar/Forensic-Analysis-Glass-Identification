@@ -1,0 +1,80 @@
+{
+  "model_name": "Random Forest + SMOTE",
+  "best_params": {},
+  "cv_macro_f1_tuned": null,
+  "test_metrics": {
+    "accuracy": 0.813953488372093,
+    "balanced_accuracy": 0.892063492063492,
+    "f1_macro": 0.830088685261099,
+    "f1_weighted": 0.8204653405936486
+  },
+  "engineered_features": false,
+  "refit_on_all_data": true,
+  "features": [
+    "RI",
+    "Na",
+    "Mg",
+    "Al",
+    "Si",
+    "K",
+    "Ca",
+    "Ba",
+    "Fe"
+  ],
+  "classes": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+  ],
+  "class_names": {
+    "1": "Building windows (float)",
+    "2": "Building windows (non-float)",
+    "3": "Vehicle windows (float)",
+    "5": "Containers",
+    "6": "Tableware",
+    "7": "Headlamps"
+  },
+  "feature_ranges": {
+    "RI": [
+      1.51115,
+      1.53393
+    ],
+    "Na": [
+      10.73,
+      17.38
+    ],
+    "Mg": [
+      0.0,
+      4.49
+    ],
+    "Al": [
+      0.29,
+      3.5
+    ],
+    "Si": [
+      69.81,
+      75.41
+    ],
+    "K": [
+      0.0,
+      6.21
+    ],
+    "Ca": [
+      5.43,
+      16.19
+    ],
+    "Ba": [
+      0.0,
+      3.15
+    ],
+    "Fe": [
+      0.0,
+      0.51
+    ]
+  },
+  "n_rows": 213,
+  "sklearn_version": "1.9.1"
+}
