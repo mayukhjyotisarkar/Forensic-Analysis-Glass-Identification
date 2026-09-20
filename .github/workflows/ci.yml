@@ -1,0 +1,38 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run automated pytest suite
+      run: |
+        python -m pytest -v
+
+    - name: Test training pipeline CLI
+      run: |
+        python -m src.train --no-tune --refit-all
+
+    - name: Test prediction CLI
+      run: |
+        python -m src.predict --RI 1.5165 --Na 14.38 --Mg 0 --Al 1.94 --Si 73.61 --K 0 --Ca 8.48 --Ba 1.57 --Fe 0
